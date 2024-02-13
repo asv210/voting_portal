@@ -18,8 +18,8 @@ const LoginController = async (req, res) => {
     }
     const token = jwt.sign(
       {
-        email: user.email,
-        id: user.password,
+        userName: user.userName,
+        id: user._id,
       },
       process.env.SECRET_KEY
     );
@@ -43,11 +43,11 @@ const RegisterController = async (req, res) => {
         userName: userName,
         password: hashedPassword,
       });
-      await user.save();
+      const savedUser=await user.save();
       const token = jwt.sign(
         {
-          email: user.email,
-          id: user.password,
+          userName: savedUser.userName,
+          id: savedUser._id,
         },
         process.env.SECRET_KEY
       );

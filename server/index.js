@@ -10,6 +10,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/userRoutes");
+const pollRouter=require("./routes/pollRoutes")
 app.use(cors());
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -24,6 +25,7 @@ mongoose
   });
 
 app.use("/api", userRouter);
+app.use("/api",pollRouter)
 
 app.use(notFound);
 

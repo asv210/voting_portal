@@ -12,4 +12,5 @@ const pollSchema = new mongoose.Schema({
   votes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
   created: { type: Date, default: Date.now },
 });
-module.exports.PollModel = mongoose.model("Poll", pollSchema);
+const PollModel = mongoose.model("Poll", pollSchema);
+module.exports=PollModel;
